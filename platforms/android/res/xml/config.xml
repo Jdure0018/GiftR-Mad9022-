@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="ca.edumedia.dure0018.myApp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <name>giftr Dure0018</name>
+    <description>
+       MAD9022 MidTerm - Giftr
+    </description>
+    <author email="dure0018@algonquinlive.com" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <splash density="land-hdpi" src="res/screens/android/splash-land-hdpi.png" />
+    <splash density="land-ldpi" src="res/screens/android/splash-land-ldpi.png" />
+    <splash density="land-mdpi" src="res/screens/android/splash-land-mdpi.png" />
+    <splash density="land-xhdpi" src="res/screens/android/splash-land-xhdpi.png" />
+    <splash density="port-hdpi" src="res/screens/android/splash-port-hdpi.png" />
+    <splash density="port-ldpi" src="res/screens/android/splash-port-ldpi.png" />
+    <splash density="port-mdpi" src="res/screens/android/splash-port-mdpi.png" />
+    <splash density="port-xhdpi" src="res/screens/android/splash-port-xhdpi.png" />
+    <icon density="ldpi" src="res/icons/icon-36-ldpi.png" />
+    <icon density="ldpi" src="res/icons/icon-48-mdpi.png" />
+    <icon density="ldpi" src="res/icons/icon-72-hdpi.png" />
+    <icon density="ldpi" src="res/icons/icon-96-xhdpi.png" />
+    <icon density="ldpi" src="res/icons/icon-144-xxhdpi.png" />
+    <icon density="ldpi" src="res/icons/icon-192-xxxhdpi.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="SlashScreen" value="screen" />
+    <preference name="SlashScreenDelay" value="5000" />
+</widget>
