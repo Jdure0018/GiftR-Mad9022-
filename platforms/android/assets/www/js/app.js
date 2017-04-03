@@ -34,8 +34,8 @@ var app = {
         case "ideaPage":
             app.addGifts();
             console.log(ev);
-            var addGift = document.getElementById('saveGift').addEventListener('click', app.addGifts);
-            var cancelGift = document.getElementById('closeBtn').addEventListener('click', app.clearFormGift);    
+            var addGift = document.getElementById('saveGift').addEventListener('touchend', app.newIdea);
+            var cancelGift = document.getElementById('closeBtn').addEventListener('touchend', app.clearFormGift);    
             break;
         default:
             app.showList();
@@ -150,14 +150,12 @@ var app = {
                     //Span
                     var spantrash = document.createElement('span');
                     spantrash.className = "pull-right icon icon-trash midline";
-        [].forEach.call(spantrash, function (value) {
-                            value.addEventListener("click", app.removeIdea);
-                        })
+                    spantrash.addEventListener('touchend', app.removeIdea);
                         //Div  
                     var mediaDiv = document.createElement('div');
                     mediaDiv.className = "media-body";
                     mediaDiv.setAttribute("gift-id", value.id);
-                    mediaDiv.appendChild(p);
+//                    mediaDiv.appendChild(p);
                     li.appendChild(mediaDiv);
                     li.appendChild(spantrash);
                     giftList.appendChild(li);
@@ -168,7 +166,7 @@ var app = {
                         app.changeGift(app.currentIdea);
                     })
                     if (value.at != "") {
-                        var store = documeent.createElement('p');
+                        var store = document.createElement('p');
                         store.innerHTML = value.at;
                         mediaDiv.appendChild(store);
                     }
@@ -185,10 +183,10 @@ var app = {
                         price.innerHTML = value.cost;
                         mediaDiv.appendChild(price);
                     }
-                })
+                });
             }
-        })
-    }
+        });
+}
     , newIdea() {
         var id = Math.floor(Date.now() / 1000),
           title = document.getElementById('title').value,
@@ -207,7 +205,7 @@ var app = {
                 if (person.id == app.currentPerson) {
                     person.ideas.push(ideaObj);
                 }
-            })
+            });
             localStorage.setItem('giftr-dure0018', JSON.stringify(app.people));
         }
         else {
@@ -219,8 +217,8 @@ var app = {
                             , gift.url = document.getElementById('url').value
                             , gift.cost = document.getElementById('cost').value
                     }
-                })
-            })
+                });
+            });
             localStorage.setItem('giftr-dure0018', JSON.stringify(app.people));
         }
         app.addGifts();
@@ -229,14 +227,17 @@ var app = {
     },
     removeIdea: function () {
         app.people.forEach(function (gift) {
+            console.log("Clicked RemoveItem");
             gift.ideas.forEach(function (obj, index) {
                 if (app.currentIdea == obj.id) {
                     gift.ideas.splice(index, 1);
                     localStorage.setItem('giftr-dure0018', JSON.stringify(app.people));
                     app.addGifts();
+                    console.log("Clicked RemoveItem 1");
                 }
-            })
-        })
+            });
+        });
+        console.log("Clicked RemoveItem 2");
     }
     , changeGift: function (current) {
         app.people.forEach(function (gift) {
@@ -247,8 +248,8 @@ var app = {
                         , gift.url = document.getElementById('url').value
                         , gift.cost = document.getElementById('cost').value
                 }
-            })
-        })
+            });
+        });
     }
     , clearFormGift: function (ev) {
         document.getElementById('giftForm').reset();
@@ -257,4 +258,3 @@ var app = {
 , };
 app.init();
 app.pagination();
-app.addGifts();
